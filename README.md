@@ -10,6 +10,32 @@ Converts an image to a sketch. Usage: `uv run utils/image2sketch.py <image_path>
 
 Converts an image to ASCII art. Usage: `uv run utils/image2ascii.py <image_path>` or it can be used as a module: `from utils.image2ascii import image2ascii`
 
+## Code Style and Formatting
+
+This repository follows PEP 8 styling guidelines. We use [Ruff](https://github.com/astral-sh/ruff) to enforce code format and rules.
+
+### Linting
+To check for PEP 8 compliance and other lint errors:
+```bash
+uvx ruff check .
+```
+
+To automatically fix safe lint errors:
+```bash
+uvx ruff check --fix .
+```
+
+### Formatting
+To verify files are formatted correctly:
+```bash
+uvx ruff format --check .
+```
+
+To automatically format the codebase:
+```bash
+uvx ruff format .
+```
+
 
 ## Resources
 
