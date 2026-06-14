@@ -1,4 +1,3 @@
-from PIL import Image
 import cv2
 import os
 import sys
@@ -7,13 +6,14 @@ import sys
 def image2sketch(image_path):
     """
     Convert an image to a sketch.
-    
+
     Args:
         image_path: Path to the input image.
-        
+
     Returns:
         Path to the output sketch image.
     """
+
     if not os.path.exists(image_path):
         raise FileNotFoundError(f"Image not found: {image_path}")
     image = cv2.imread(image_path)
@@ -35,4 +35,3 @@ if __name__ == "__main__":
     image_path = sys.argv[1]
     output_path = image2sketch(image_path)
     print(f"Image converted to sketch: {output_path}")
-
