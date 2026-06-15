@@ -9,3 +9,22 @@ dependencies = [
     "pillow>=12.2.0",
     "requests>=2.34.2",
 ]
+
+[dependency-groups]
+dev = [
+    "ipython>=9.14.1",
+    "mypy>=2.1.0",
+    "pre-commit>=4.6.0",
+    "pytest>=9.1.0",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.15.17",
+]
+
+[tool.mypy]
+ignore_missing_imports = true
+check_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "--cov=utils --cov-report=term-missing"
