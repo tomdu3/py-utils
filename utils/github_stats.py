@@ -8,10 +8,11 @@ Can be run as a standalone script or imported as a module.
 import argparse
 import os
 import sys
+from typing import Any
 import requests
 
 
-def fetch_github_user(username: str, token: str = None) -> dict:
+def fetch_github_user(username: str, token: str | None = None) -> dict[str, Any] | None:
     """
     Fetches profile information for a specified GitHub user.
     """
@@ -56,7 +57,7 @@ def fetch_github_user(username: str, token: str = None) -> dict:
     return None
 
 
-def fetch_github_repos(username: str, token: str = None) -> list:
+def fetch_github_repos(username: str, token: str | None = None) -> list[dict[str, Any]]:
     """
     Fetches the list of public repositories for a specified GitHub user, sorted by recent activity.
     """
@@ -69,7 +70,7 @@ def fetch_github_repos(username: str, token: str = None) -> list:
     if token:
         headers["Authorization"] = f"token {token}"
 
-    params = {"sort": "updated", "per_page": 100}
+    params: dict[str, Any] = {"sort": "updated", "per_page": 100}
 
     try:
         response = requests.get(url, headers=headers, params=params, timeout=10)
